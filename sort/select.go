@@ -1,6 +1,6 @@
-package selection
+package sort
 
-func SortAsc(data []int) {
+func selectSortAsc(data []int) {
 	for i := 0; i < len(data)-1; i++ {
 		min := i
 		for j := i + 1; j < len(data); j++ {
@@ -14,7 +14,7 @@ func SortAsc(data []int) {
 	}
 }
 
-func SortDesc(data []int) {
+func selectSortDesc(data []int) {
 	for i := 0; i < len(data)-1; i++ {
 		max := i
 		for j := i + 1; j < len(data); j++ {
