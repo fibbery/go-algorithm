@@ -79,21 +79,57 @@ package sort
 
 func insertSortAsc(data []int) {
 	for i := 1; i < len(data); i++ {
-		for j := i - 1; j >= 0; j-- {
-			if data[j] > data[j+1] {
-				data[j], data[j+1] = data[j+1], data[j]
-			}
+		val := data[i] //需要插入的数
+		key := i - 1
+		//如果插入的数比左侧的小，则把左侧的数前移一位
+		for ; key >= 0 && val < data[key]; key-- {
+			data[key+1] = data[key]
+		}
+		// 将插入的数放在不小于左侧数的位置
+		if key+1 != i {
+			data[key+1] = val
 		}
 	}
 }
 
 func insertSortDesc(data []int) {
 	for i := 1; i < len(data); i++ {
-		for j := i - 1; j >= 0; j-- {
-			if data[j] < data[j+1] {
-				data[j], data[j+1] = data[j+1], data[j]
-			}
+		val := data[i]
+		key := i - 1
+		for ;key >= 0 && val > data[key];key-- {
+			data[key+1] = data[key]
+		}
+
+		if key != i-1 {
+			data[key+1] = val
 		}
 	}
+}
+```
+### 4.快速排序
+#### 4.1 算法步骤
+* 从数列中挑出一个元素，称为 “基准”（pivot）;
+* 重新排序数列，所有元素比基准值小的摆放在基准前面，所有元素比基准值大的摆在基准的后面（相同的数可以到任一边）。在这个分区退出之后，该基准就处于数列的中间位置。这个称为分区（partition）操作；
+* 递归地（recursive）把小于基准值元素的子数列和大于基准值元素的子数列排序；
+#### 4.2 参考代码
+```go
+package sort
+
+func quickSort(array []int) []int {
+	if len(array) < 2 {
+		return array
+	}
+	pivot := array[0]
+	var left, middle, right []int
+	for _, v := range array {
+		if v > pivot {
+			right = append(right, v)
+		}else if v == pivot {
+			middle = append(middle, v)
+		}else {
+			left = append(left, v)
+		}
+	}
+	return append(quickSort(append(left, middle...)), quickSort(right)...)
 }
 ```
