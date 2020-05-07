@@ -1,5 +1,7 @@
 package sort
 
+import "math"
+
 func HeapSort(array []int) []int {
 	length := len(array)
 	beginIndex := length/2 - 1
@@ -38,4 +40,8 @@ func heapify(array []int, index int, length int) {
 		array[largest], array[index] = array[index], array[largest]
 		heapify(array, largest, length)
 	}
+}
+
+func main() {
+	math.Max()
 }
