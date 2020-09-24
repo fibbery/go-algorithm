@@ -1,9 +1,8 @@
 package sort
 
-import "math"
-
 func HeapSort(array []int) []int {
 	length := len(array)
+	//数组类比成完全二叉树，从最后一个非叶子节点开始创建一个大顶堆,那么最后第0位是最大的
 	beginIndex := length/2 - 1
 	for i := beginIndex; i >= 0; i-- {
 		//创造出一个大顶堆：即节点永远比该节点的两个子节点大
@@ -42,6 +41,3 @@ func heapify(array []int, index int, length int) {
 	}
 }
 
-func main() {
-	math.Max()
-}

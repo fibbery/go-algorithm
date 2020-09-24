@@ -31,21 +31,3 @@ func TestHeapSort(t *testing.T) {
 		})
 	}
 }
-
-func Test_heapify(t *testing.T) {
-	type args struct {
-		array  []int
-		index  int
-		length int
-	}
-	tests := []struct {
-		name string
-		args args
-	}{
-		// TODO: Add test cases.
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-		})
-	}
-}

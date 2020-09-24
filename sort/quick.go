@@ -1,5 +1,7 @@
 package sort
 
+import "container/list"
+
 func quickSort(array []int) []int {
 	if len(array) < 2 {
 		return array
@@ -45,6 +47,8 @@ func partition(nums []int, left, right int)int {
 	}
 	nums[pivot] , nums[index - 1] = nums[index - 1] , nums[pivot]
 	return index - 1
+
+	list.New()
 }
 
 
