@@ -10,11 +10,12 @@ func NewArrayList() *ArrayList {
 }
 
 type Node struct {
-	Val  interface{}
-	Next *Node
+	Val        interface{}
+	Prev, Next *Node
 }
 
 func (l *ArrayList) Push(val interface{}) {
+	l.size++
 	next := &Node{Val: val}
 	if l.head == nil {
 		l.head = next
@@ -40,4 +41,8 @@ func (l *ArrayList) AddFirst(val interface{}) {
 
 func (l *ArrayList) Size() int {
 	return l.size
+}
+
+func (l *ArrayList) Head() *Node{
+	return l.head
 }
