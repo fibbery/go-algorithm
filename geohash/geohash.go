@@ -12,7 +12,7 @@ const (
 
 var (
 	base32 = []byte(BASE32)
-	bits   = []int{16, 8, 4, 2, 1,}
+	bits   = []int{16, 8, 4, 2, 1}
 )
 
 type Box struct {
@@ -89,5 +89,5 @@ func GetNeighbors(latitude, longitude float64, precision int) []string {
 	northEast, _ := Encode(area.MaxLat+latUnit, area.MaxLng+lngUnit, precision)
 	southEast, _ := Encode(area.MinLat-latUnit, area.MaxLng+lngUnit, precision)
 
-	return []string{northWest, north, northEast, west, center, east, southWest, south, southEast,}
+	return []string{northWest, north, northEast, west, center, east, southWest, south, southEast}
 }
